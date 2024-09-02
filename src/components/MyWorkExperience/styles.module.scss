@@ -1,0 +1,109 @@
+.container {
+  --bg-color: #0d2f81;
+  --text-color: #fff;
+  background: var(--bg-color);
+  position: relative;
+  padding: 36px 0;
+  .content {
+    z-index: 2;
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 24px;
+
+    color: white;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    .mobile-sections {
+      display: block;
+      .mobile-image-section {
+        .mobile-image {
+          width: 100%;
+          height: auto;
+          margin-top: 32px;
+          margin-bottom: 8px;
+        }
+        h3 {
+          font-size: 28px;
+        }
+      }
+    }
+
+    .desktop-sections {
+      margin-top: 50px;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      display: none;
+      width: 100%;
+
+      .texts {
+        position: sticky;
+        top: 225px;
+        flex: 1;
+        .section {
+          margin-top: 50px;
+          cursor: pointer;
+          transition: opacity 0.6s ease-out;
+          opacity: 0.5;
+          border-left: solid 3px white;
+          padding-left: 10px;
+          &:hover {
+            opacity: 1;
+          }
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+      .images {
+        flex: 2;
+        .image {
+          width: 80%;
+          height: auto;
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .footer {
+      padding: 120px 10% 0px 10%;
+      margin: auto;
+      border-top: 1px solid var(--text-color);
+      margin-top: 50px;
+
+      > h1 {
+        font-size: var(--heading-font-size);
+        color: var(--logo-color);
+        margin-bottom: 50px;
+      }
+
+      > a {
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        padding: 13px 30px;
+        font-size: 16px;
+        line-height: 26px;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .content {
+      .mobile-sections {
+        display: none;
+      }
+
+      .desktop-sections {
+        display: flex;
+      }
+    }
+  }
+}

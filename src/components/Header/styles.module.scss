@@ -1,0 +1,56 @@
+.wrapper {
+  position: absolute;
+  inset: 0px;
+  background: var(--bg-color);
+  clip: rect(auto, auto, auto, auto);
+
+  header.content {
+    z-index: 4;
+    background: var(--bg-color);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 16px 32px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    .left {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      h1 {
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 28px;
+      }
+      span {
+        color: var(--text-color);
+        background: none;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 40px;
+        display: none;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      .left {
+        span {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
