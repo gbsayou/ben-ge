@@ -16,12 +16,28 @@ const MySkills = () => {
           />
         </div>
         <div className={styles['hero-text']}>
-          <h1>Ben Ge</h1>
+          <h1>My Skills</h1>
+          <p>I have extensive full-stack development experience.</p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu nunc
-            nec nisl tincidunt tincidunt. Sed eu nunc nec nisl tincidunt
-            tincidunt.
+            I am proficient in front-end technologies such as HTML, CSS, and
+            JavaScript, with a strong command of frameworks like React and
+            Next.js.
           </p>
+          <p>On the back-end, I am skilled in Node.js and PostgreSQL.</p>
+          <p>
+            I have significant experience with CI/CD processes, utilizing tools
+            like Git, Jenkins, and Docker for continuous integration and
+            delivery.
+          </p>
+          <p>
+            Additionally, I have a year of experience as a team lead, guiding
+            teams to successfully complete projects.
+          </p>
+          <p>
+            I emphasize code maintainability, scalability, and effective team
+            collaboration.
+          </p>
+          <span className={styles['skill-button']}>see my skill set</span>
         </div>
       </div>
     </div>

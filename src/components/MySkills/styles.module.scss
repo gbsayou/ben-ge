@@ -29,6 +29,19 @@
     }
     .hero-text {
       flex: 1;
+      .skill-button {
+        font-size: 20px;
+        color: #0d2f81;
+        margin-top: 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 160px;
+        height: 40px;
+        border: 2px solid #0d2f81;
+        border-radius: 8px;
+      }
     }
   }
   @media screen and (min-width: 768px) {
