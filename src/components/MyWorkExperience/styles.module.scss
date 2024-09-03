@@ -1,5 +1,5 @@
 .container {
-  --bg-color: #0d2f81;
+  --bg-color: slategray;
   --text-color: #fff;
   background: var(--bg-color);
   position: relative;
@@ -29,6 +29,12 @@
         h3 {
           font-size: 28px;
         }
+        p {
+          margin-top: 4px;
+          a {
+            text-decoration: underline;
+          }
+        }
       }
     }
 
@@ -51,6 +57,12 @@
           opacity: 0.5;
           border-left: solid 3px white;
           padding-left: 10px;
+          p {
+            margin-top: 4px;
+            a {
+              text-decoration: underline;
+            }
+          }
           &:hover {
             opacity: 1;
           }
@@ -61,6 +73,7 @@
       }
       .images {
         flex: 2;
+        margin-left: 60px;
         .image {
           width: 80%;
           height: auto;
@@ -97,6 +110,10 @@
 
   @media screen and (min-width: 768px) {
     .content {
+      h2 {
+        position: sticky;
+        top: 88px;
+      }
       .mobile-sections {
         display: none;
       }

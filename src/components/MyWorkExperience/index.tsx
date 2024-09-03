@@ -3,25 +3,51 @@ import Image, {StaticImageData} from 'next/image';
 import Header from '@/components/Header';
 import cn from 'classnames';
 import styles from './styles.module.scss';
-import hero from '@/assets/images/hero.png';
 import scrollInto from '@/utils/scrollInto';
+import data from './data';
 
 interface MobileWorkExperienceSectionProps {
   image: StaticImageData;
   title: string;
+  company?: string;
   desc: string;
 }
 
-const MobileWorkExperience = ({
-  image,
-  title,
-  desc,
-}: MobileWorkExperienceSectionProps) => {
+interface DesktopWorkExperienceSectionProps {
+  title: string;
+  company?: string;
+  desc: string;
+  visibleSection: number;
+  id: number;
+}
+
+const MobileWorkExperience = ({image, title, company, desc}: MobileWorkExperienceSectionProps) => {
   return (
     <div className={styles['mobile-image-section']}>
-      <Image src={image} alt="111" className={styles['mobile-image']} />
       <h3>{title}</h3>
-      <p>{desc}</p>
+      {company && <span> @ {company}</span>}
+      <p dangerouslySetInnerHTML={{__html: desc}} />
+      <Image src={image} alt="111" className={styles['mobile-image']} />
+    </div>
+  );
+};
+
+const DesktopWorkExperienceSection = ({
+  title,
+  company,
+  desc,
+  visibleSection,
+  id,
+}: DesktopWorkExperienceSectionProps) => {
+  return (
+    <div
+      className={cn(styles.section, {[styles.active]: visibleSection == id})}
+      onClick={() => {
+        scrollInto(`desktop-img-${id}`);
+      }}>
+      <h3>{title}</h3>
+      {company && <span> @ {company}</span>}
+      <p dangerouslySetInnerHTML={{__html: desc}} />
     </div>
   );
 };
@@ -36,9 +62,7 @@ const MyWorkExperience = () => {
       const element = document.getElementById(id);
       if (element) {
         return {
-          yPos:
-            element.getBoundingClientRect().top -
-            document.body.getBoundingClientRect().top,
+          yPos: element.getBoundingClientRect().top - document.body.getBoundingClientRect().top,
           height: element.clientHeight,
         };
       }
@@ -52,37 +76,31 @@ const MyWorkExperience = () => {
         const sectionRefs = [
           {
             section: 1,
-            pos: getPosition('desktop-img-1'),
+            pos: getPosition('desktop-img-0'),
           },
           {
             section: 2,
-            pos: getPosition('desktop-img-2'),
+            pos: getPosition('desktop-img-1'),
           },
           {
             section: 3,
-            pos: getPosition('desktop-img-3'),
+            pos: getPosition('desktop-img-2'),
           },
         ];
 
         const scrollPosition = window.scrollY + yOffset;
         if (
           scrollPosition >= 0 &&
-          scrollPosition <
-            sectionRefs[0].pos.yPos + sectionRefs[0].pos.height / 4
+          scrollPosition < sectionRefs[0].pos.yPos + sectionRefs[0].pos.height / 4
+        ) {
+          setVisibleSection(0);
+        } else if (
+          scrollPosition >= sectionRefs[0].pos.yPos + sectionRefs[0].pos.height / 4 &&
+          scrollPosition < sectionRefs[1].pos.yPos + sectionRefs[1].pos.height / 4
         ) {
           setVisibleSection(1);
-        } else if (
-          scrollPosition >=
-            sectionRefs[0].pos.yPos + sectionRefs[0].pos.height / 4 &&
-          scrollPosition <
-            sectionRefs[1].pos.yPos + sectionRefs[1].pos.height / 4
-        ) {
+        } else if (scrollPosition >= sectionRefs[1].pos.yPos + sectionRefs[1].pos.height / 4) {
           setVisibleSection(2);
-        } else if (
-          scrollPosition >=
-          sectionRefs[1].pos.yPos + sectionRefs[1].pos.height / 4
-        ) {
-          setVisibleSection(3);
         }
       }
     };
@@ -99,74 +117,39 @@ const MyWorkExperience = () => {
       <div className={styles.content}>
         <h2>My Work Experience</h2>
         <div className={styles['mobile-sections']}>
-          <MobileWorkExperience
-            image={hero}
-            title="tkww"
-            desc="full stack developer"
-          />
-          <MobileWorkExperience
-            image={hero}
-            title="tkww"
-            desc="full stack developer"
-          />
-          <MobileWorkExperience
-            image={hero}
-            title="tkww"
-            desc="full stack developer"
-          />
+          {data.map((section) => (
+            <MobileWorkExperience
+              key={section.title}
+              title={section.title}
+              company={section.company}
+              desc={section.description}
+              image={section.image}
+            />
+          ))}
         </div>
         <div className={styles['desktop-sections']}>
           <div className={styles.texts}>
-            <div
-              className={cn(styles.section, {
-                [styles.active]: visibleSection == 1,
-              })}
-              onClick={() => {
-                scrollInto('desktop-img-1');
-              }}>
-              <h3>tkww</h3>
-              <p>full stack developer</p>
-            </div>
-            <div
-              className={cn(styles.section, {
-                [styles.active]: visibleSection == 2,
-              })}
-              onClick={() => {
-                scrollInto('desktop-img-2');
-              }}>
-              <h3>tkww</h3>
-              <p>full stack developer</p>
-            </div>
-            <div
-              className={cn(styles.section, {
-                [styles.active]: visibleSection == 3,
-              })}
-              onClick={() => {
-                scrollInto('desktop-img-3');
-              }}>
-              <h3>tkww</h3>
-              <p>full stack developer</p>
-            </div>
+            {data.map((section, index) => (
+              <DesktopWorkExperienceSection
+                key={section.title}
+                title={section.title}
+                company={section.company}
+                desc={section.description}
+                id={index}
+                visibleSection={visibleSection}
+              />
+            ))}
           </div>
           <div className={styles.images}>
-            <Image
-              src={hero}
-              alt="hero"
-              className={styles.image}
-              id="desktop-img-1"
-            />
-            <Image
-              src={hero}
-              alt="hero"
-              className={styles.image}
-              id="desktop-img-2"
-            />
-            <Image
-              src={hero}
-              alt="hero"
-              className={styles.image}
-              id="desktop-img-3"
-            />
+            {data.map((section, index) => (
+              <Image
+                key={section.title}
+                src={section.image}
+                alt="hero"
+                className={styles.image}
+                id={`desktop-img-${index}`}
+              />
+            ))}
           </div>
         </div>
 
