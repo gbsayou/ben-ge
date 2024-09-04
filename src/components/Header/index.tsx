@@ -1,5 +1,5 @@
-import {AiOutlineMenu} from 'react-icons/ai';
 import styles from './styles.module.scss';
+import {SlCloudDownload} from 'react-icons/sl';
 
 const Header = () => {
   return (
@@ -7,7 +7,10 @@ const Header = () => {
       <header className={styles.content}>
         <div className={styles.left}>
           <h1>Ben Ge</h1>
-          <span>My Resume</span>
+          <a href="/files/BenGe-FullStackEngineer.pdf" download>
+            My Resume
+            <SlCloudDownload size={24} />
+          </a>
         </div>
       </header>
     </div>

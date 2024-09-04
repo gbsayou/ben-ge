@@ -32,7 +32,7 @@
         color: var(--text-color);
         font-size: 28px;
       }
-      span {
+      a {
         color: var(--text-color);
         background: none;
         border: none;
@@ -41,14 +41,18 @@
         cursor: pointer;
         text-decoration: none;
         margin-left: 40px;
+        height: 24px;
         display: none;
+        svg {
+          margin-left: 4px;
+        }
       }
     }
 
     @media only screen and (min-width: 768px) {
       .left {
-        span {
-          display: inline-block;
+        a {
+          display: flex;
         }
       }
     }
