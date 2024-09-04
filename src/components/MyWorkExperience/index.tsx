@@ -153,11 +153,6 @@ const MyWorkExperience = () => {
             ))}
           </div>
         </div>
-
-        <div className={styles.footer}>
-          <h1>Give me a job, please</h1>
-          <a href="https://www.linkedin.com/in/tkww/">linkedin</a>
-        </div>
       </div>
     </div>
   );

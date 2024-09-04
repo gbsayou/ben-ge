@@ -10,7 +10,7 @@ const SkillSet = ({onClose}: SkillSetProps) => {
   return (
     <div className={styles['skill-set']}>
       <div className={styles.header}>
-        <AiOutlineClose onClick={onClose} />
+        <AiOutlineClose onClick={onClose} color="black" />
       </div>
       <div className={styles.content}>
         {skills.map((section) => (

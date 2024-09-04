@@ -1,0 +1,23 @@
+.contact-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background: beige;
+  color: slategray;
+  h2 {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .contact-links {
+    margin-top: 16px;
+    a {
+      height: 24px;
+      margin: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
