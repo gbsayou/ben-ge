@@ -1,9 +1,14 @@
+import {useState} from 'react';
+import ReactModal from 'react-modal';
 import Header from '@/components/Header';
 import Image from 'next/image';
 import avatar from '@/assets/images/avatar.png';
 import styles from './styles.module.scss';
+import SkillSet from '@/components/SkillSet';
 
 const MySkills = () => {
+  const [showModal, setShowModal] = useState(false);
+  const handleCloseModal = () => setShowModal(false);
   return (
     <div className={styles.container} id="skill-mid-section">
       <Header />
@@ -28,9 +33,24 @@ const MySkills = () => {
             complete projects.
           </p>
           <p>I emphasize code maintainability, scalability, and effective team collaboration.</p>
-          <span className={styles['skill-button']}>see my skill set</span>
+          <span
+            className={styles['skill-button']}
+            onClick={() => {
+              setShowModal(true);
+            }}>
+            see my skill set
+          </span>
         </div>
       </div>
+      <ReactModal
+        isOpen={showModal}
+        onRequestClose={handleCloseModal}
+        className={styles['modal']}
+        overlayClassName={styles['overlay']}
+        ariaHideApp={false}
+        shouldCloseOnOverlayClick={false}>
+        <SkillSet onClose={handleCloseModal} />
+      </ReactModal>
     </div>
   );
 };

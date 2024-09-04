@@ -1,0 +1,22 @@
+.skill-set {
+  padding: 24px;
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    svg {
+      cursor: pointer;
+    }
+  }
+  .content {
+    .section {
+      margin-bottom: 16px;
+      h3 {
+        margin: 8px 0 16px;
+      }
+      img {
+        margin: 0 8px;
+      }
+    }
+  }
+}
