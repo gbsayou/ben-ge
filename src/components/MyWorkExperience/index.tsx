@@ -115,8 +115,8 @@ const MyWorkExperience = () => {
     <div className={styles.container}>
       <Header />
       <div className={styles.content}>
-        <h2>My Work Experience</h2>
         <div className={styles['mobile-sections']}>
+          <h2>My Work Experience</h2>
           {data.map((section) => (
             <MobileWorkExperience
               key={section.title}
@@ -129,6 +129,7 @@ const MyWorkExperience = () => {
         </div>
         <div className={styles['desktop-sections']}>
           <div className={styles.texts}>
+            <h2>My Work Experience</h2>
             {data.map((section, index) => (
               <DesktopWorkExperienceSection
                 key={section.title}
