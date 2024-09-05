@@ -4,8 +4,13 @@ const ContactMe = () => {
   return (
     <div className={styles['contact-me']}>
       <h2>Talk with me!</h2>
-      <p>I&apos;m currently looking out for a remote work opportunity.</p>
-      <p>Or if you have cool ideas in mind, let&apos;s get in touch!</p>
+      <p>
+        I&apos;m currently looking out for a remote work opportunity.
+        <span>
+          <br />
+        </span>
+        Or if you have cool ideas in mind, let&apos;s get in touch!
+      </p>
       <div className={styles['contact-links']}>
         <a href="https://github.com/gbsayou" target="_blank" rel="noreferrer">
           <AiFillGithub />

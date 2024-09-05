@@ -17,14 +17,7 @@ const SkillSet = ({onClose}: SkillSetProps) => {
           <div className={styles.section} key={section.section}>
             <h3>{section.section}</h3>
             {section.skills.map((skill) => (
-              <img
-                src={skill.icon}
-                alt={skill.name}
-                key={skill.name}
-                title={skill.name}
-                width="68"
-                height="68"
-              />
+              <img src={skill.icon} alt={skill.name} key={skill.name} title={skill.name} />
             ))}
           </div>
         ))}

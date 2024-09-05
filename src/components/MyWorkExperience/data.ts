@@ -17,7 +17,7 @@ export default [
     image: skill,
   },
   {
-    title: 'CI/CD',
+    title: 'DevOps',
     description:
       'I have strong expertise in CI/CD, with hands-on experience using tools like Git, Jenkins, Docker, and Kubernetes to streamline the software development lifecycle. I am proficient in setting up automated pipelines that handle code integration, testing, deployment, and monitoring. This ensures that new features and fixes are deployed efficiently and reliably. My approach focuses on minimizing downtime and manual intervention, maintaining high code quality, and enabling continuous delivery of software updates, which significantly improves team productivity and project delivery speed.',
     image: cicd,
