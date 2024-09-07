@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import Image from 'next/image';
 import styles from './styles.module.scss';
 
 const SubHeader = () => {
@@ -7,8 +8,14 @@ const SubHeader = () => {
       <Header />
       <div className={styles.content}>
         <h3 className={styles.name}>
-          Hi there, this is Ben Ge{' '}
-          <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="40"></img>
+          Hi there, this is Ben Ge
+          <Image
+            src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif"
+            width="40"
+            height="40"
+            alt="Hi"
+            unoptimized
+          />
         </h3>
         <h3 className={styles.tip}>I&apos;m a</h3>
         <h2 className={styles.title}>Full Stack Engineer</h2>

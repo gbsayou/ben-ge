@@ -17,8 +17,10 @@
         margin: 8px 0 16px;
         color: #000;
       }
-      img {
+      .icon {
         margin: 0 8px;
+        position: relative;
+        display: inline-block;
         width: 60px;
         height: 60px;
       }
@@ -27,7 +29,7 @@
   @media screen and (min-width: 768px) {
     .content {
       max-height: unset;
-      img {
+      .icon {
         width: 68px;
         height: 68px;
       }

@@ -1,4 +1,5 @@
 import {AiOutlineClose} from 'react-icons/ai';
+import Image from 'next/image';
 import styles from './styles.module.scss';
 import skills from './skills';
 
@@ -17,7 +18,9 @@ const SkillSet = ({onClose}: SkillSetProps) => {
           <div className={styles.section} key={section.section}>
             <h3>{section.section}</h3>
             {section.skills.map((skill) => (
-              <img src={skill.icon} alt={skill.name} key={skill.name} title={skill.name} />
+              <div key={skill.name} className={styles.icon}>
+                <Image fill src={skill.icon} alt={skill.name} title={skill.name} />
+              </div>
             ))}
           </div>
         ))}

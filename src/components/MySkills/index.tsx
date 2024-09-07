@@ -14,7 +14,7 @@ const MySkills = () => {
       <Header />
       <div className={styles.content}>
         <div className={styles['hero-image']}>
-          <Image src={avatar} alt="Picture of the author" className={styles.image} />
+          <Image src={avatar} alt="Picture of the author" className={styles.image} priority />
         </div>
         <div className={styles['hero-text']}>
           <h1>My Skills</h1>
